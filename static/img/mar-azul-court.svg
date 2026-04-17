@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-labelledby="title desc">
+  <title id="title">Mar Azul Court</title>
+  <desc id="desc">Ilustracion estilizada del modelo Mar Azul Court.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e9f7ff"/>
+      <stop offset="100%" stop-color="#c4defa"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="560" rx="40" fill="url(#bg)"/>
+  <circle cx="660" cy="100" r="88" fill="#0fa3b1" opacity="0.17"/>
+  <circle cx="150" cy="426" r="120" fill="#ff6b35" opacity="0.11"/>
+  <g transform="translate(68 138)">
+    <path d="M17 216C54 145 126 115 224 121L350 129C385 131 417 147 440 173L532 277C553 301 583 315 615 315H659C684 315 706 332 712 356L721 389H52C24 389 1 365 1 338V316C1 279 7 250 17 216Z" fill="#fefdf9"/>
+    <path d="M198 123L352 130C385 132 412 146 434 170L487 225L350 219C285 216 228 189 198 123Z" fill="#d2e0ef"/>
+    <path d="M72 391C82 344 116 315 160 315H628C666 315 700 342 713 391" fill="none" stroke="#0f172a" stroke-width="18" stroke-linecap="round"/>
+    <path d="M108 253L205 188L323 225" fill="none" stroke="#0fa3b1" stroke-width="20" stroke-linecap="round"/>
+    <path d="M286 168H437" stroke="#2f6fab" stroke-width="14" stroke-linecap="round"/>
+    <path d="M523 277L617 315" stroke="#ff6b35" stroke-width="18" stroke-linecap="round"/>
+    <circle cx="194" cy="399" r="46" fill="#0f172a"/>
+    <circle cx="565" cy="399" r="46" fill="#0f172a"/>
+    <circle cx="194" cy="399" r="17" fill="#fffdf8"/>
+    <circle cx="565" cy="399" r="17" fill="#fffdf8"/>
+  </g>
+  <text x="58" y="74" fill="#17212b" font-family="Space Grotesk, Arial, sans-serif" font-size="34" font-weight="700">MAR AZUL COURT</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-labelledby="title desc">
+  <title id="title">Solar Street Mid</title>
+  <desc id="desc">Ilustracion estilizada del modelo Solar Street Mid.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff5d7"/>
+      <stop offset="100%" stop-color="#ffd689"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="560" rx="40" fill="url(#bg)"/>
+  <circle cx="210" cy="105" r="94" fill="#ff6b35" opacity="0.12"/>
+  <circle cx="630" cy="430" r="112" fill="#0fa3b1" opacity="0.12"/>
+  <g transform="translate(68 136)">
+    <path d="M18 219C54 151 123 119 222 124L356 133C389 135 421 151 444 179L537 282C558 304 586 317 618 317H662C688 317 710 334 717 358L725 390H55C25 390 1 366 1 338V316C1 279 7 250 18 219Z" fill="#fffdf7"/>
+    <path d="M202 126L357 133C390 134 416 148 437 173L490 228L352 221C288 218 232 191 202 126Z" fill="#e7d8ad"/>
+    <path d="M74 392C84 346 118 317 162 317H630C668 317 702 343 715 392" fill="none" stroke="#101828" stroke-width="18" stroke-linecap="round"/>
+    <path d="M111 252L208 187L326 226" fill="none" stroke="#ff6b35" stroke-width="20" stroke-linecap="round"/>
+    <path d="M286 169H437" stroke="#5e5130" stroke-width="14" stroke-linecap="round"/>
+    <path d="M528 281L621 317" stroke="#0fa3b1" stroke-width="18" stroke-linecap="round"/>
+    <circle cx="196" cy="400" r="46" fill="#0f172a"/>
+    <circle cx="568" cy="400" r="46" fill="#0f172a"/>
+    <circle cx="196" cy="400" r="17" fill="#fffdf8"/>
+    <circle cx="568" cy="400" r="17" fill="#fffdf8"/>
+  </g>
+  <text x="58" y="74" fill="#17212b" font-family="Space Grotesk, Arial, sans-serif" font-size="34" font-weight="700">SOLAR STREET MID</text>
+</svg>

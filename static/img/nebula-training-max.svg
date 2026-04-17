@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-labelledby="title desc">
+  <title id="title">Nebula Training Max</title>
+  <desc id="desc">Ilustracion estilizada del modelo Nebula Training Max.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1efff"/>
+      <stop offset="100%" stop-color="#d9d5ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="560" rx="40" fill="url(#bg)"/>
+  <circle cx="640" cy="108" r="88" fill="#6c63ff" opacity="0.16"/>
+  <circle cx="152" cy="430" r="120" fill="#0fa3b1" opacity="0.12"/>
+  <g transform="translate(68 138)">
+    <path d="M18 216C57 146 127 116 224 122L352 130C386 132 419 148 442 174L534 279C555 302 585 317 618 317H662C687 317 709 333 716 357L724 390H53C24 390 1 365 1 338V317C1 280 7 250 18 216Z" fill="#fffdfb"/>
+    <path d="M199 124L354 131C387 132 416 147 438 173L491 226L352 220C287 217 229 190 199 124Z" fill="#d9d4ff"/>
+    <path d="M74 392C82 346 117 317 161 317H629C667 317 702 343 715 392" fill="none" stroke="#101828" stroke-width="18" stroke-linecap="round"/>
+    <path d="M108 252L205 187L325 224" fill="none" stroke="#6c63ff" stroke-width="20" stroke-linecap="round"/>
+    <path d="M286 169H438" stroke="#0fa3b1" stroke-width="14" stroke-linecap="round"/>
+    <path d="M525 279L620 317" stroke="#8a83ff" stroke-width="18" stroke-linecap="round"/>
+    <circle cx="194" cy="399" r="46" fill="#0f172a"/>
+    <circle cx="567" cy="399" r="46" fill="#0f172a"/>
+    <circle cx="194" cy="399" r="17" fill="#fffdf8"/>
+    <circle cx="567" cy="399" r="17" fill="#fffdf8"/>
+  </g>
+  <text x="58" y="74" fill="#17212b" font-family="Space Grotesk, Arial, sans-serif" font-size="34" font-weight="700">NEBULA TRAINING MAX</text>
+</svg>

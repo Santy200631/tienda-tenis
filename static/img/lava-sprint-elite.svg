@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-labelledby="title desc">
+  <title id="title">Lava Sprint Elite</title>
+  <desc id="desc">Ilustracion estilizada del modelo Lava Sprint Elite.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff0ea"/>
+      <stop offset="100%" stop-color="#ffb9a0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="560" rx="40" fill="url(#bg)"/>
+  <circle cx="190" cy="116" r="98" fill="#ff6b35" opacity="0.19"/>
+  <circle cx="646" cy="422" r="112" fill="#5f2222" opacity="0.11"/>
+  <g transform="translate(68 138)">
+    <path d="M18 217C57 146 126 114 222 121L352 130C387 132 420 149 442 175L535 279C555 301 584 316 616 316H661C686 316 709 334 715 358L723 390H53C24 390 1 365 1 338V316C1 279 7 251 18 217Z" fill="#fffdf9"/>
+    <path d="M199 123L354 130C388 132 415 147 438 173L491 225L351 219C286 216 229 190 199 123Z" fill="#f0c1b2"/>
+    <path d="M74 392C82 346 116 316 160 316H629C667 316 702 343 715 392" fill="none" stroke="#101828" stroke-width="18" stroke-linecap="round"/>
+    <path d="M108 252L204 186L324 223" fill="none" stroke="#ff6b35" stroke-width="20" stroke-linecap="round"/>
+    <path d="M286 169H438" stroke="#7b2011" stroke-width="14" stroke-linecap="round"/>
+    <path d="M525 279L620 316" stroke="#401212" stroke-width="18" stroke-linecap="round"/>
+    <circle cx="194" cy="399" r="46" fill="#0f172a"/>
+    <circle cx="567" cy="399" r="46" fill="#0f172a"/>
+    <circle cx="194" cy="399" r="17" fill="#fffdf8"/>
+    <circle cx="567" cy="399" r="17" fill="#fffdf8"/>
+  </g>
+  <text x="58" y="74" fill="#17212b" font-family="Space Grotesk, Arial, sans-serif" font-size="34" font-weight="700">LAVA SPRINT ELITE</text>
+</svg>

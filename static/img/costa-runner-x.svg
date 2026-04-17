@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-labelledby="title desc">
+  <title id="title">Costa Runner X</title>
+  <desc id="desc">Ilustracion estilizada del modelo Costa Runner X.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ebfbff"/>
+      <stop offset="100%" stop-color="#d1f1f3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="560" rx="40" fill="url(#bg)"/>
+  <circle cx="640" cy="120" r="92" fill="#0fa3b1" opacity="0.18"/>
+  <circle cx="140" cy="435" r="120" fill="#ffb38f" opacity="0.2"/>
+  <g transform="translate(70 140)">
+    <path d="M18 218C56 146 128 114 226 121L352 130C386 132 417 149 439 176L533 279C554 303 584 318 617 318H661C686 318 708 334 714 359L721 388H52C24 388 1 365 1 337V317C1 279 7 251 18 218Z" fill="#fffdf9"/>
+    <path d="M199 124L355 131C387 133 413 146 435 171L484 223L350 217C284 214 229 188 199 124Z" fill="#d7e8ea"/>
+    <path d="M70 390C78 344 114 318 159 318H628C666 318 699 341 712 390" fill="none" stroke="#0f172a" stroke-width="18" stroke-linecap="round"/>
+    <path d="M106 253L202 186L314 223" fill="none" stroke="#0fa3b1" stroke-width="20" stroke-linecap="round"/>
+    <path d="M287 170H433" stroke="#ff6b35" stroke-width="14" stroke-linecap="round"/>
+    <path d="M524 279L619 318" stroke="#0fa3b1" stroke-width="18" stroke-linecap="round"/>
+    <circle cx="193" cy="398" r="46" fill="#0f172a"/>
+    <circle cx="564" cy="398" r="46" fill="#0f172a"/>
+    <circle cx="193" cy="398" r="17" fill="#fffdf8"/>
+    <circle cx="564" cy="398" r="17" fill="#fffdf8"/>
+  </g>
+  <text x="58" y="74" fill="#17212b" font-family="Space Grotesk, Arial, sans-serif" font-size="34" font-weight="700">COSTA RUNNER X</text>
+</svg>
