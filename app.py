@@ -91,4 +91,4 @@ app = create_app()
 
 if __name__ == "__main__":
     # Ejecuta la app exactamente en el host y puerto solicitados.
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    app.run(host="127.0.0.1", port=5000, debug=False)
