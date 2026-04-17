@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Presenta la propuesta de valor principal de la tienda. -->
+<section class="hero-section">
+    <div class="container">
+        {% if not_found %}
+        <div class="alert alert-warning shadow-sm">La pagina solicitada no existe. Te llevamos de vuelta al inicio.</div>
+        {% endif %}
+        {% if server_error %}
+        <div class="alert alert-danger shadow-sm">Ocurrio un error interno inesperado. Puedes seguir navegando desde aqui.</div>
+        {% endif %}
+
+        <div class="hero-surface">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <span class="eyebrow">Coleccion premium para correr, entrenar y destacar</span>
+                    <h1 class="hero-title">Tenis con energia, identidad y stock en tiempo real.</h1>
+                    <p class="hero-text">
+                        Descubre un catalogo curado de tenis deportivos con una experiencia de compra clara,
+                        rapida y respaldada por SQL Server.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a class="btn btn-brand btn-lg" href="{{ url_for('productos.ver_catalogo') }}">Explorar catalogo</a>
+                        {% if current_user %}
+                        <a class="btn btn-outline-brand btn-lg" href="{{ url_for('productos.ver_carrito') }}">Ver mi carrito</a>
+                        {% else %}
+                        <a class="btn btn-outline-brand btn-lg" href="{{ url_for('auth.login') }}">Iniciar sesion</a>
+                        {% endif %}
+                    </div>
+                    <div class="hero-metrics">
+                        <div class="metric-card">
+                            <span>{{ productos_destacados|length }}</span>
+                            <small>Modelos destacados</small>
+                        </div>
+                        <div class="metric-card">
+                            <span>24/7</span>
+                            <small>Acceso a tu cuenta</small>
+                        </div>
+                        <div class="metric-card">
+                            <span>SQL</span>
+                            <small>Inventario conectado</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="hero-showcase">
+                        {% if productos_destacados %}
+                            {% for producto in productos_destacados[:2] %}
+                            <article class="hero-float-card reveal-card">
+                                <img src="{{ url_for('static', filename=producto.ImagenUrl) }}" alt="{{ producto.Nombre }}">
+                                <div>
+                                    <span class="soft-badge">Nuevo ingreso</span>
+                                    <h3>{{ producto.Nombre }}</h3>
+                                    <p>{{ producto.Descripcion }}</p>
+                                </div>
+                            </article>
+                            {% endfor %}
+                        {% else %}
+                        <article class="hero-float-card">
+                            <div>
+                                <span class="soft-badge">Catalogo listo</span>
+                                <h3>Tu tienda esta preparada</h3>
+                                <p>Cuando SQL Server este disponible, aqui apareceran tus tenis destacados.</p>
+                            </div>
+                        </article>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Resume beneficios clave para reforzar la confianza del usuario. -->
+<section class="content-section">
+    <div class="container">
+        <div class="section-card">
+            <div class="section-heading">
+                <span class="eyebrow">Por que comprar aqui</span>
+                <h2>Una experiencia simple, visual y lista para vender.</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <article class="feature-card reveal-card">
+                        <i class="bi bi-lightning-charge"></i>
+                        <h3>Navegacion rapida</h3>
+                        <p>Accede al catalogo, detalle y carrito desde una interfaz fluida y enfocada en conversion.</p>
+                    </article>
+                </div>
+                <div class="col-md-4">
+                    <article class="feature-card reveal-card">
+                        <i class="bi bi-shield-check"></i>
+                        <h3>Sesion segura</h3>
+                        <p>Registra usuarios, inicia sesion y protege el carrito con manejo de sesiones en Flask.</p>
+                    </article>
+                </div>
+                <div class="col-md-4">
+                    <article class="feature-card reveal-card">
+                        <i class="bi bi-bag-check"></i>
+                        <h3>Stock visible</h3>
+                        <p>Consulta precios y existencias reales sin salir del flujo de compra.</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Destaca algunos productos del catalogo para invitar a explorar la tienda. -->
+<section class="content-section">
+    <div class="container">
+        <div class="section-heading mb-4">
+            <span class="eyebrow">Favoritos de la semana</span>
+            <h2>Modelos listos para elevar tu ritmo.</h2>
+        </div>
+        <div class="row g-4">
+            {% for producto in productos_destacados %}
+            <div class="col-md-6 col-xl-4">
+                <article class="product-card reveal-card">
+                    <div class="product-image-wrap">
+                        <img src="{{ url_for('static', filename=producto.ImagenUrl) }}" alt="{{ producto.Nombre }}">
+                    </div>
+                    <div class="product-copy">
+                        <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+                            <h3>{{ producto.Nombre }}</h3>
+                            <span class="price-pill">{{ producto.Precio|currency }}</span>
+                        </div>
+                        <p>{{ producto.Descripcion }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="stock-pill">{{ producto.Stock }} disponibles</span>
+                            <a class="btn btn-outline-brand btn-sm" href="{{ url_for('productos.ver_detalle_producto', product_id=producto.IdProducto) }}">Ver detalle</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            {% else %}
+            <div class="col-12">
+                <div class="empty-state">
+                    <h3>No hay productos destacados todavia</h3>
+                    <p>La tienda mostrara aqui los modelos semilla una vez que la base de datos responda correctamente.</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

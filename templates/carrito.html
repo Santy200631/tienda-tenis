@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Resume el contenido del carrito del usuario autenticado. -->
+<section class="content-section">
+    <div class="container">
+        <div class="section-card catalog-header">
+            <span class="eyebrow">Mi carrito</span>
+            <h1>Revisa tus tenis antes de continuar.</h1>
+            <p>Consulta cantidades, subtotales y elimina productos si necesitas ajustar tu compra.</p>
+        </div>
+
+        {% if items %}
+        <div class="row g-4 mt-1">
+            <div class="col-lg-8">
+                {% for item in items %}
+                <article class="cart-item reveal-card">
+                    <div class="cart-thumb">
+                        <img src="{{ url_for('static', filename=item.ImagenUrl) }}" alt="{{ item.Nombre }}">
+                    </div>
+                    <div class="cart-copy">
+                        <div class="d-flex justify-content-between gap-3 flex-wrap">
+                            <div>
+                                <h3>{{ item.Nombre }}</h3>
+                                <p>{{ item.Descripcion }}</p>
+                            </div>
+                            <span class="price-pill">{{ item.PrecioUnitario|currency }}</span>
+                        </div>
+                        <div class="cart-meta">
+                            <span><strong>Cantidad:</strong> {{ item.Cantidad }}</span>
+                            <span><strong>Stock disponible:</strong> {{ item.Stock }}</span>
+                            <span><strong>Subtotal:</strong> {{ item.Subtotal|currency }}</span>
+                        </div>
+                    </div>
+                    <div class="cart-actions">
+                        <form method="post" action="{{ url_for('productos.eliminar_del_carrito', detail_id=item.IdDetalleCarrito) }}">
+                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                                <i class="bi bi-trash3"></i>
+                                Eliminar
+                            </button>
+                        </form>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+
+            <div class="col-lg-4">
+                <aside class="summary-card">
+                    <span class="eyebrow">Resumen</span>
+                    <h2>Total del carrito</h2>
+                    <p>{{ items|length }} productos distintos en tu seleccion actual.</p>
+                    <div class="summary-row">
+                        <span>Unidades totales</span>
+                        <strong>{{ items|sum(attribute='Cantidad') }}</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Total a pagar</span>
+                        <strong class="summary-total">{{ total|currency }}</strong>
+                    </div>
+                    <a class="btn btn-brand w-100 mt-3" href="{{ url_for('productos.ver_catalogo') }}">Seguir comprando</a>
+                    <p class="checkout-note">Checkout demostrativo: el flujo queda listo para ampliarse con pago y ordenes.</p>
+                </aside>
+            </div>
+        </div>
+        {% else %}
+        <div class="empty-state mt-4">
+            <h3>Tu carrito esta vacio</h3>
+            <p>Explora el catalogo y agrega tenis para ver aqui tu resumen de compra.</p>
+            <a class="btn btn-brand" href="{{ url_for('productos.ver_catalogo') }}">Ir al catalogo</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

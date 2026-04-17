@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Presenta el formulario de acceso junto con ayuda rapida para pruebas. -->
+<section class="auth-section">
+    <div class="container">
+        <div class="row g-4 align-items-stretch">
+            <div class="col-lg-5">
+                <div class="auth-panel auth-info-panel">
+                    <span class="eyebrow">Bienvenido a PURA TENIS</span>
+                    <h1>Inicia sesion y continua tu compra.</h1>
+                    <p>
+                        Accede a tu carrito, revisa el catalogo completo y prueba el flujo con los usuarios
+                        preparados para este proyecto.
+                    </p>
+                    <div class="sample-users">
+                        <div class="sample-user-card">
+                            <strong>usuario1</strong>
+                            <span>Contrasena: 1234</span>
+                        </div>
+                        <div class="sample-user-card">
+                            <strong>admin</strong>
+                            <span>Contrasena: admin123</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="auth-panel auth-form-panel">
+                    <h2>Entrar a tu cuenta</h2>
+                    <p class="auth-subtitle">Usa tus credenciales para navegar el catalogo y manejar el carrito.</p>
+                    <form method="post" class="auth-form">
+                        <div class="mb-3">
+                            <label for="nombre_usuario" class="form-label">Usuario</label>
+                            <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" value="{{ request.form.get('nombre_usuario', '') }}" placeholder="Escribe tu usuario" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="contrasena" class="form-label">Contrasena</label>
+                            <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Ingresa tu contrasena" required>
+                        </div>
+                        <button type="submit" class="btn btn-brand btn-lg w-100">Iniciar sesion</button>
+                    </form>
+                    <p class="auth-footer-text">
+                        Aun no tienes cuenta?
+                        <a href="{{ url_for('auth.register') }}">Registrate aqui</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

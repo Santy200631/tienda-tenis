@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Permite crear una nueva cuenta para usar carrito y sesiones. -->
+<section class="auth-section">
+    <div class="container">
+        <div class="row g-4 align-items-stretch">
+            <div class="col-lg-5">
+                <div class="auth-panel auth-info-panel">
+                    <span class="eyebrow">Cuenta nueva</span>
+                    <h1>Registrate y prepara tu proximo par.</h1>
+                    <p>
+                        Crear una cuenta te permite guardar productos en el carrito y vivir una experiencia de compra
+                        completa dentro de PURA TENIS.
+                    </p>
+                    <ul class="benefit-list">
+                        <li>Carrito persistido en SQL Server.</li>
+                        <li>Acceso inmediato al catalogo.</li>
+                        <li>Sesion segura desde Flask.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="auth-panel auth-form-panel">
+                    <h2>Crear cuenta</h2>
+                    <p class="auth-subtitle">Completa los datos para registrar un usuario nuevo.</p>
+                    <form method="post" class="auth-form">
+                        <div class="mb-3">
+                            <label for="nombre_usuario" class="form-label">Nombre de usuario</label>
+                            <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" value="{{ request.form.get('nombre_usuario', '') }}" placeholder="Ejemplo: runner506" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contrasena" class="form-label">Contrasena</label>
+                            <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Minimo 4 caracteres" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="confirmar_contrasena" class="form-label">Confirmar contrasena</label>
+                            <input type="password" class="form-control" id="confirmar_contrasena" name="confirmar_contrasena" placeholder="Repite tu contrasena" required>
+                        </div>
+                        <button type="submit" class="btn btn-brand btn-lg w-100">Crear cuenta</button>
+                    </form>
+                    <p class="auth-footer-text">
+                        Ya tienes cuenta?
+                        <a href="{{ url_for('auth.login') }}">Inicia sesion</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

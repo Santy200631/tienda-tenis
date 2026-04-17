@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Introduce el catalogo general de la tienda. -->
+<section class="content-section">
+    <div class="container">
+        <div class="section-card catalog-header">
+            <span class="eyebrow">Catalogo completo</span>
+            <h1>Encuentra tenis para running, training y estilo diario.</h1>
+            <p>
+                Revisa el precio, el stock y los detalles de cada modelo antes de agregarlo al carrito.
+                {% if current_user %}
+                Tu sesion esta activa y puedes comprar de inmediato.
+                {% else %}
+                Inicia sesion para comenzar a comprar.
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Resalta el producto seleccionado cuando el usuario entra a una vista de detalle. -->
+{% if producto_seleccionado %}
+<section class="content-section pt-0">
+    <div class="container">
+        <div class="detail-spotlight">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-5">
+                    <div class="spotlight-image">
+                        <img src="{{ url_for('static', filename=producto_seleccionado.ImagenUrl) }}" alt="{{ producto_seleccionado.Nombre }}">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <span class="eyebrow">Detalle del producto</span>
+                    <h2>{{ producto_seleccionado.Nombre }}</h2>
+                    <p class="spotlight-description">{{ producto_seleccionado.Descripcion }}</p>
+                    <div class="spotlight-meta">
+                        <span class="price-pill large">{{ producto_seleccionado.Precio|currency }}</span>
+                        <span class="stock-pill large">{{ producto_seleccionado.Stock }} unidades en stock</span>
+                    </div>
+
+                    {% if current_user %}
+                    <form method="post" action="{{ url_for('productos.agregar_carrito', product_id=producto_seleccionado.IdProducto) }}" class="spotlight-form">
+                        <input type="hidden" name="redirect_to" value="{{ request.path }}">
+                        <div class="quantity-selector">
+                            <button type="button" class="quantity-btn" data-qty-target="cantidad_detalle" data-qty-action="decrease" aria-label="Disminuir cantidad">-</button>
+                            <input type="number" id="cantidad_detalle" name="cantidad" min="1" max="{{ producto_seleccionado.Stock }}" value="1">
+                            <button type="button" class="quantity-btn" data-qty-target="cantidad_detalle" data-qty-action="increase" aria-label="Aumentar cantidad">+</button>
+                        </div>
+                        <button type="submit" class="btn btn-brand btn-lg">Agregar al carrito</button>
+                    </form>
+                    {% else %}
+                    <a class="btn btn-brand btn-lg" href="{{ url_for('auth.login') }}">Inicia sesion para comprar</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Dibuja la cuadricula principal de productos con acciones rapidas. -->
+<section class="content-section pt-0">
+    <div class="container">
+        <div class="row g-4">
+            {% for producto in productos %}
+            <div class="col-md-6 col-xl-4">
+                <article class="product-card reveal-card {% if producto_seleccionado and producto_seleccionado.IdProducto == producto.IdProducto %}product-card-selected{% endif %}">
+                    <div class="product-image-wrap">
+                        <img src="{{ url_for('static', filename=producto.ImagenUrl) }}" alt="{{ producto.Nombre }}">
+                    </div>
+                    <div class="product-copy">
+                        <div class="d-flex justify-content-between align-items-start gap-3 mb-2">
+                            <h3>{{ producto.Nombre }}</h3>
+                            <span class="price-pill">{{ producto.Precio|currency }}</span>
+                        </div>
+                        <p>{{ producto.Descripcion }}</p>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="stock-pill">{{ producto.Stock }} disponibles</span>
+                            {% if producto_seleccionado and producto_seleccionado.IdProducto == producto.IdProducto %}
+                            <span class="soft-badge">En detalle</span>
+                            {% endif %}
+                        </div>
+                        <div class="d-grid gap-2">
+                            <a class="btn btn-outline-brand" href="{{ url_for('productos.ver_detalle_producto', product_id=producto.IdProducto) }}">Ver detalle</a>
+                            {% if current_user %}
+                            <form method="post" action="{{ url_for('productos.agregar_carrito', product_id=producto.IdProducto) }}" class="d-grid">
+                                <input type="hidden" name="cantidad" value="1">
+                                <input type="hidden" name="redirect_to" value="{{ request.path }}">
+                                <button type="submit" class="btn btn-brand">Agregar al carrito</button>
+                            </form>
+                            {% else %}
+                            <a class="btn btn-brand" href="{{ url_for('auth.login') }}">Entrar para comprar</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </article>
+            </div>
+            {% else %}
+            <div class="col-12">
+                <div class="empty-state">
+                    <h3>No hay productos cargados</h3>
+                    <p>Cuando la base este lista, aqui apareceran todos los tenis disponibles para la venta.</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
