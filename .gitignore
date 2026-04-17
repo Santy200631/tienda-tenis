@@ -1,0 +1,20 @@
+# Ignora archivos temporales de Python y entornos virtuales.
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+
+# Ignora configuraciones locales del editor y archivos de sistema.
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+
+# Ignora variables de entorno locales.
+.env
+
+# Ignora archivos de log generados durante pruebas locales.
+*.log
